@@ -1,5 +1,6 @@
 extends Node
 
+var camera
 var change_level = false
 var current_level = 0
 var levels = [
@@ -64,6 +65,10 @@ func _unhandled_input(event):
 func change_score(s):
 	score += s
 	emit_signal("changed")
+	if camera == null:
+		camera = get_node_or_null("/root/Game/Camera")
+	if camera != null:
+		camera.add_trauma(s/20.0)
 
 func change_moves(m):
 	moves += m

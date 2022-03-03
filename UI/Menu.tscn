@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Smilling Face.png" type="Texture" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -9,6 +10,11 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Backgound_Image" type="Sprite" parent="."]
+scale = Vector2( 9, 16 )
+texture = ExtResource( 2 )
+centered = false
 
 [node name="Background" type="ColorRect" parent="."]
 margin_left = 10.0
@@ -26,6 +32,9 @@ margin_bottom = 512.0
 text = "Welcome to Match-3"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Play" type="Button" parent="."]
 margin_left = 238.0

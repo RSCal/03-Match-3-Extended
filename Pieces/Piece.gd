@@ -14,6 +14,10 @@ var default_modulate = Color(1,1,1,1)
 var highlight = Color(1,0.8,0,1)
 var grid = Vector2.ZERO
 
+var Sound_1=null
+var Sound_2=null
+var Sound_3=null
+
 var default_z = z_index
 const max_z = 4095
 
@@ -64,7 +68,10 @@ func make_color_bomb():
 func die():
 	dying = true
 	Global.update_goals(piece)
-
+	if Sound_3==null:
+		Sound_3=get_node_or_null("/root/Game/1")
+	if Sound_3!=null:
+		Sound_3.play()
 
 func constrain(xy):
 	var Grid = get_node_or_null("/root/Game/Grid")
@@ -91,3 +98,15 @@ func constrain(xy):
 			var max_x = Grid.grid_to_pixel(clamp(grid.x+1,grid.x,Grid.width-1), grid.y)
 			temp.x = clamp(temp.x,min_x.x,max_x.x)
 		return temp
+
+func generate(pos):
+	if Sound_1==null:
+		Sound_1=get_node_or_null("/root/Game/1")
+	if Sound_1!=null:
+		Sound_1.play()
+
+func move_piece(change):
+	if Sound_2==null:
+		Sound_2=get_node_or_null("/root/Game/1")
+	if Sound_2!=null:
+		Sound_2.play()
